@@ -21,14 +21,11 @@ public:
     bool running() { return isRunning; }
 
 private:
-
     bool isRunning = false;
     SDL_Window *window;
     SDL_Renderer* renderer;
 
     int CNTR = 0;
-
-
 };
 
 
