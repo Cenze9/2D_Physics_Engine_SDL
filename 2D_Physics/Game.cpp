@@ -1,5 +1,11 @@
 #include "Game.h"
 
+// https://www.youtube.com/watch?v=YrWQsuDT3NE&list=PLhfAbcv9cehhkG7ZQK0nfIGJC_C-wSLrx&index=4
+// noin 12 min läpi
+
+SDL_Texture* playerText;
+
+
 Game::Game()
 {
 }
@@ -29,7 +35,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         renderer = SDL_CreateRenderer(window, -1, 0);
         if (renderer)
         {
-            SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+            SDL_SetRenderDrawColor(renderer, 192, 192, 192, 255);
             std::cout << "renderer live" << std::endl;
         }
         isRunning = true;
@@ -38,6 +44,15 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         isRunning = false;
         std::cout << "failet init" << std::endl;
     }
+
+//Player:
+
+    SDL_Surface* tmpSurf = IMG_Load("Assets/cueb.png");
+    playerText = SDL_CreateTextureFromSurface(renderer, tmpSurf);
+    SDL_FreeSurface(tmpSurf);
+
+
+
 
 }
 
@@ -60,8 +75,6 @@ void Game::handlEvents()
 
 void Game::update()
 {
-    std::cout << CNTR << std::endl;
-    CNTR++;
 
 }
 
@@ -70,6 +83,10 @@ void Game::render()
     SDL_RenderClear(renderer);
 
     //ADD stuff to render.
+
+    SDL_RenderCopy(renderer, playerText, NULL, NULL);
+
+
 
     SDL_RenderPresent(renderer);
 }
