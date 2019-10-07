@@ -1,14 +1,11 @@
 #include "Game.h"
 
-
 Game::Game()
 {
-
 }
 
 Game::~Game()
 {
-
 }
 
 void Game::init(const char* title, int xpos, int ypos, int width, int height, bool fullscreen)
@@ -41,9 +38,6 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
         isRunning = false;
         std::cout << "failet init" << std::endl;
     }
-
-
-
 
 }
 
